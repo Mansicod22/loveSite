@@ -1,0 +1,17 @@
+name = "our-love-universe-worker"
+main = "src/index.js"
+compatibility_date = "2024-09-01"
+
+# Cloudflare D1 Database Binding
+[[d1_databases]]
+binding = "DB"
+database_name = "love-db"
+database_id = "f2da2ac7-1ac4-4774-b3ff-02da7767e6ca"
+
+# Cloudflare Cron Triggers (Runs every 5 minutes)
+[triggers]
+crons = ["*/5 * * * *"]
+
+# Observability & Logs
+[observability]
+enabled = true
