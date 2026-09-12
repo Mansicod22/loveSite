@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS settings (
 
 -- Seed initial settings
 INSERT OR IGNORE INTO settings (key, value) VALUES 
-('boyfriend_name', 'Rahul'),
+('boyfriend_name', 'Dudu'),
 ('timezone', 'Asia/Kolkata'),
 ('is_paused', 'false'),
 ('paused_until', '');
@@ -37,17 +37,17 @@ CREATE TABLE IF NOT EXISTS messages (
 
 -- Seed initial messages
 INSERT OR IGNORE INTO messages (id, category, message_text, enabled) VALUES
-(1, 'GOOD_MORNING', 'Good morning {NAME} ❤️ I hope today gives you a hundred reasons to smile.', 1),
+(1, 'GOOD_MORNING', 'Good morning {Dudu} ❤️ I hope today gives you a hundred reasons to smile.', 1),
 (2, 'GOOD_MORNING', 'Wake up sleepyhead 🌅❤️ Someone is already thinking about you.', 1),
 (3, 'GOOD_MORNING', 'Good morning jaan ❤️ Have the most beautiful day.', 1),
 (4, 'GOOD_AFTERNOON', 'Good afternoon, love ☀️ Just checking in to remind you that you are on my mind. ❤️', 1),
-(5, 'GOOD_AFTERNOON', 'Half the day is gone, but my thoughts of you are still here, {NAME}. 🥰', 1),
+(5, 'GOOD_AFTERNOON', 'Half the day is gone, but my thoughts of you are still here, {Dudu}. 🥰', 1),
 (6, 'GOOD_EVENING', 'Good evening, jaan 🌆❤️ How was your day? I hope you are taking care of yourself.', 1),
-(7, 'GOOD_EVENING', 'Sunsets remind me of how warm and beautiful you make my life feel. Good evening {NAME}! 🌆❤️', 1),
+(7, 'GOOD_EVENING', 'Sunsets remind me of how warm and beautiful you make my life feel. Good evening {Dudu}! 🌆❤️', 1),
 (8, 'GOOD_NIGHT', 'Good night, my love 🌙❤️ Sleep peacefully and remember that someone loves you endlessly.', 1),
 (9, 'GOOD_NIGHT', 'Close your eyes and sleep well, jaan. Tomorrow is another day to make memories together. ❤️', 1),
 (10, 'I_MISS_YOU', 'I don''t know what you''re doing right now, but I hope you know that somewhere, someone is smiling just because you exist. ❤️', 1),
-(11, 'I_MISS_YOU', 'I miss you a little more than usual today, {NAME}. 🥺❤️', 1),
+(11, 'I_MISS_YOU', 'I miss you a little more than usual today, {Dudu}. 🥺❤️', 1),
 (12, 'RANDOM_LOVE', 'Just a random reminder that you are the best thing that ever happened to me 💕', 1);
 
 -- 4. Schedules Table

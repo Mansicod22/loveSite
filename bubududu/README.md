@@ -31,7 +31,7 @@ All personal settings are centralized at the very top of `script.js` inside the 
    💕 PERSONALIZE YOUR LOVE WEBSITE (EDIT CONFIG HERE)
    =================================================== */
 const CONFIG = {
-    boyfriendName: "Rahul",
+    boyfriendName: "Dudu",
     boyfriendPhone: "+91 98765 43210",
     relationshipStartDate: "2025-01-01",
     ...

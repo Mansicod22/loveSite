@@ -118,7 +118,7 @@ async function handleScheduledCron(env) {
 
     // Get boyfriend name setting
     const nameSetting = await env.DB.prepare("SELECT value FROM settings WHERE key = 'boyfriend_name'").first();
-    const boyfriendName = nameSetting ? nameSetting.value : "Rahul";
+    const boyfriendName = nameSetting ? nameSetting.value : "Dudu";
 
     // Get enabled schedules
     const { results: schedules } = await env.DB.prepare("SELECT * FROM schedules WHERE enabled = 1").all();
@@ -149,28 +149,48 @@ async function handleScheduledCron(env) {
             continue;
         }
 
-        // 4. Select message for category
-        const { results: categoryMessages } = await env.DB.prepare(
+        // 4. Select fresh non-repeating message (Internet Quote + Custom Message Mix)
+        let formattedBody = "";
+        let selectedMsgId = 0;
+
+        // 35% Chance to pick a Custom Saved Message from D1 DB
+        const { results: customDbMessages } = await env.DB.prepare(
             "SELECT * FROM messages WHERE category = ? AND enabled = 1"
         ).bind(schedule.category).all();
 
-        if (!categoryMessages || categoryMessages.length === 0) {
-            console.log(`[Cron] No enabled messages found for category ${schedule.category}`);
-            continue;
+        if (customDbMessages && customDbMessages.length > 0 && Math.random() < 0.35) {
+            const picked = customDbMessages[Math.floor(Math.random() * customDbMessages.length)];
+            formattedBody = picked.message_text.replace(/\{NAME\}/g, boyfriendName);
+            selectedMsgId = picked.id;
         }
 
-        // Pick message (avoid repeating last_sent_message_id if multiple options exist)
-        let selectedMsg = categoryMessages[0];
-        if (categoryMessages.length > 1) {
-            const available = categoryMessages.filter(m => m.id !== schedule.last_sent_message_id);
-            const pool = available.length > 0 ? available : categoryMessages;
-            selectedMsg = pool[Math.floor(Math.random() * pool.length)];
+        // Otherwise fetch fresh quote from Internet API
+        if (!formattedBody) {
+            try {
+                const apiRes = await fetch("https://api.quotable.io/quotes/random?tags=love");
+                if (apiRes.ok) {
+                    const data = await apiRes.json();
+                    const q = Array.isArray(data) ? data[0] : data;
+                    if (q && q.content) {
+                        formattedBody = `${q.content} ❤️`;
+                    }
+                }
+            } catch (e) {
+                console.log("[Cron] Internet quote API fetch failed, falling back to DB pool:", e);
+            }
         }
 
-        // Format message with {NAME} replacement and header
-        const rawText = selectedMsg.message_text;
-        const formattedBody = rawText.replace(/\{NAME\}/g, boyfriendName);
-        
+        // Fallback to D1 Database message pool if API is unavailable
+        if (!formattedBody && customDbMessages && customDbMessages.length > 0) {
+            const picked = customDbMessages[Math.floor(Math.random() * customDbMessages.length)];
+            formattedBody = picked.message_text.replace(/\{NAME\}/g, boyfriendName);
+            selectedMsgId = picked.id;
+        }
+
+        if (!formattedBody) {
+            formattedBody = `Thinking of you right now, ${boyfriendName}! Wishing you a wonderful day filled with happiness and love 💕`;
+        }
+
         let header = "❤️ A Little Love For You";
         if (schedule.category === "GOOD_MORNING") header = "🌅 Good Morning ❤️";
         if (schedule.category === "GOOD_AFTERNOON") header = "☀️ Good Afternoon ❤️";

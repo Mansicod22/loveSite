@@ -3,56 +3,152 @@
    =================================================== */
 const CONFIG = {
     // 1. Boyfriend Default Details (Saved in localStorage on device)
-    boyfriendName: "Rahul",
-    boyfriendPhone: "+91 98765 43210",
+    boyfriendName: "Dudu",
+    boyfriendPhone: "+91 9651714545",
 
     // 2. Special Relationship Start Date (Format: YYYY-MM-DD)
-    relationshipStartDate: "2025-01-01",
+    relationshipStartDate: "2023-01-12",
 
-    // 3. Our Memories — Polaroid Memory Wall (Add your photos inside images/ folder)
+    // 3. Our Memories — Polaroid Memory Wall & Interactive Album (12 Photos)
     memories: [
         {
+            id: "mem-1",
             image: "images/photo1.jpg",
             title: "Our First Memory ❤️",
-            caption: "The day we laughed too much ❤️",
-            date: "2025",
+            caption: "The moment my world became brighter because of you ✨",
+            date: "Special Day",
+            category: "romantic",
             rotation: "-2.5deg"
         },
         {
-            image: "images/photo2.jpg",
-            title: "That Beautiful Day 🥰",
-            caption: "When time stood still with you ✨",
-            date: "2025",
-            rotation: "2deg"
+            id: "mem-3",
+            image: "images/photo3.jpg",
+            title: "Together Forever 💕",
+            caption: "In your eyes, I found my safest home and endless love 💖",
+            date: "Unforgettable",
+            category: "romantic",
+            rotation: "-1.8deg"
         },
         {
-            image: "images/photo3.jpg",
-            title: "Sunset Together 🌅",
-            caption: "Sunsets are better by your side 🌇",
-            date: "2025",
-            rotation: "-1.8deg"
+            id: "mem-4",
+            image: "images/photo4.jpg",
+            title: "Golden Hour Vibes 🌅",
+            caption: "Sunsets are beautiful, but they look prettiest right beside you ✨",
+            date: "Golden Days",
+            category: "travel",
+            rotation: "3.1deg"
+        },
+        {
+            id: "mem-5",
+            image: "images/photo5.jpg",
+            title: "Crazy & Happy 🤪💖",
+            caption: "Life is a million times sweeter when we laugh together!",
+            date: "Happy Hours",
+            category: "cute",
+            rotation: "-3deg"
+        },
+        {
+            id: "mem-6",
+            image: "images/photo6.jpg",
+            title: "Precious Laughs 🤭💖",
+            caption: "Every single laugh with you is saved in my heart forever ✨",
+            date: "Cute Days",
+            category: "cute",
+            rotation: "2.4deg"
+        },
+        {
+            id: "mem-7",
+            image: "images/photo7.jpg",
+            title: "Holding Your Hand 🤝❤️",
+            caption: "Walking every step in hand through every season of life 🌸",
+            date: "Walks & Talks",
+            category: "travel",
+            rotation: "1.5deg"
+        },
+        {
+            id: "mem-8",
+            image: "images/photo8.jpg",
+            title: "Warmest Hugs 🤗✨",
+            caption: "A single hug from you melts away all my worries 💖",
+            date: "Cozy Moments",
+            category: "cute",
+            rotation: "-2deg"
+        },
+        {
+            id: "mem-9",
+            image: "images/photo9.jpg",
+            title: "Magical Evening 🌆",
+            caption: "Starry nights and cozy conversations with my favorite Dudu 🌙",
+            date: "Magical Hours",
+            category: "romantic",
+            rotation: "2.8deg"
+        },
+        {
+            id: "mem-10",
+            image: "images/photo10.jpg",
+            title: "Unforgettable Joy 🌟",
+            caption: "Making endless magical memories by your side 💕",
+            date: "Golden Times",
+            category: "travel",
+            rotation: "-2.6deg"
+        },
+        {
+            id: "mem-11",
+            image: "images/photo11.jpg",
+            title: "Pure Bliss ✨",
+            caption: "Just being next to you makes everything feel complete 🥰",
+            date: "Sweet Hours",
+            category: "cute",
+            rotation: "1.9deg"
+        },
+        {
+            id: "mem-12",
+            image: "images/photo12.jpg",
+            title: "Heartbeat & Joy 💓",
+            caption: "You make my heart skip a beat every single day 🥰",
+            date: "Pure Bliss",
+            category: "cute",
+            rotation: "-1.2deg"
+        },
+        {
+            id: "mem-13",
+            image: "images/photo13.jpg",
+            title: "Forever & Always 💍",
+            caption: "You are my today and all of my tomorrows, Dudu ❤️",
+            date: "Endless Love",
+            category: "romantic",
+            rotation: "2deg"
         }
     ],
 
-    // 4. Little Things I Love About You (Edit or add new reasons easily)
+    // 4. Little Things I Love About You 🤍
     reasonsILoveYou: [
-        "Your smile ❤️",
-        "The way you make me laugh 😂",
-        "The way you care about little things.",
-        "Your voice when you call me.",
-        "Just... you. 🥰",
-        "How safe and warm I feel around you."
+        "The way you drive your car — somehow, I just love watching you drive. 🚗❤️",
+        "Your smile — especially the one that instantly makes my mood better. 😊✨",
+        "Your annoying nature — even when you drive me crazy, I secretly love it. 🤪💕",
+        "Your lips — I don’t think I need to explain this one. ❤️💋",
+        "Your hair — I could honestly keep playing with it forever. 💇‍♂️💖",
+        "Your arms — especially when I hold them like this. There’s just something about being close to you that feels like home. 🏡🤗",
+        "The little expressions you make without even realizing it. 🥰",
+        "The way you laugh. 🤭✨",
+        "The way you look at me. 👀❤️",
+        "And all those tiny things you do that you probably don’t even notice, but I somehow always do. 💫💖"
     ],
 
     // 5. Our Special Dates Timeline (Edit or add new milestones)
     specialDates: [
         {
-            date: "2025-01-01",
+            date: "2017-07-13",
             title: "The Beginning ❤️",
             description: "Our beautiful journey started."
         },
         {
-            date: "2025-02-14",
+            date: "2023-01-12",
+            title: "Our First Night 💕",
+            description: "A Night I'll always remember."
+        },
+        {
+            date: "2023-01-13",
             title: "Our Special Day 💕",
             description: "A day I'll always remember."
         }
@@ -118,6 +214,138 @@ const MESSAGE_LIBRARY = {
     ]
 };
 
+// --- 💌 FRESH DYNAMIC INTERNET LOVE QUOTES & CUSTOM MESSAGE DEDUPLICATION ENGINE ---
+const STORAGE_KEYS_SEEN_QUOTES = "love_app_seen_quote_history";
+
+function getSeenQuoteHistory() {
+    try {
+        const stored = localStorage.getItem(STORAGE_KEYS_SEEN_QUOTES);
+        return stored ? JSON.parse(stored) : [];
+    } catch (e) {
+        return [];
+    }
+}
+
+function saveSeenQuote(quoteText) {
+    if (!quoteText) return;
+    let history = getSeenQuoteHistory();
+    const clean = quoteText.trim().toLowerCase();
+    if (!history.includes(clean)) {
+        history.push(clean);
+        if (history.length > 500) history.shift();
+        try {
+            localStorage.setItem(STORAGE_KEYS_SEEN_QUOTES, JSON.stringify(history));
+        } catch (e) {}
+    }
+}
+
+function isQuoteSeen(quoteText) {
+    if (!quoteText) return false;
+    const history = getSeenQuoteHistory();
+    return history.includes(quoteText.trim().toLowerCase());
+}
+
+const FRESH_ONLINE_LOVE_QUOTES = {
+    morning: [
+        "Good morning, Dudu! Every morning with you is a fresh page in our love story ❤️",
+        "Wake up my love 🌅 You are the sunshine that makes my day bright and beautiful ✨",
+        "Morning Dudu! Just wanted to send you a warm hug to start your day with joy 💕",
+        "Good morning Dudu ❤️ Your smile is the first thing I want to see every single morning 🥰",
+        "Sunrise reminds me of how blessed I am to have you in my life. Good morning, Dudu! ☀️",
+        "Good morning my favorite person ❤️ May today bring you as much happiness as you give me!",
+        "A peaceful morning to you, Dudu 🌅 Thinking of you right now with all my heart 💕",
+        "Good morning Dudu! You are the sweet thought that starts my day with a smile 🥰"
+    ],
+    afternoon: [
+        "Good afternoon Dudu ☀️ Just a quick pause to remind you how deeply loved you are ❤️",
+        "Half of the day is done, but my love for you keeps growing every second 💕",
+        "Hope your afternoon is going smoothly, Dudu! Take a deep breath and stay happy 🥰",
+        "Sending a warm breeze of hugs your way this afternoon ☀️ Stay hydrated and keep smiling!",
+        "No matter how busy the day gets, Dudu, you're always on my mind ❤️",
+        "Good afternoon my love ☀️ You make every moment of the day worthwhile ✨"
+    ],
+    evening: [
+        "Good evening Dudu 🌆 The sun sets, but my thoughts of you shine brighter than ever ❤️",
+        "Evening love! Take off the day's fatigue and relax, someone is missing you endlessly 💕",
+        "Sunsets remind me of the warmth of your hugs. Good evening my favorite Dudu 🌆❤️",
+        "Hope your evening is calm and sweet, Dudu. Sending you endless love 🥰",
+        "Good evening Dudu 🌆 Rest your heart and mind, you mean the world to me!"
+    ],
+    night: [
+        "Good night my sweet Dudu 🌙 May your dreams be filled with peace and love ❤️",
+        "Sleep well, Dudu 🌙 Tomorrow is another day to love you even more than today 💕",
+        "Good night my favorite person 🌙 Close your eyes and feel my love surrounding you 🥰",
+        "May the stars watch over you tonight, Dudu. Sweet dreams my love 💫❤️",
+        "Night night Dudu 🌙 Sending you soft kisses and warm hugs in your sleep 💕"
+    ],
+    miss_you: [
+        "Wish you were right here with me, Dudu 🥺❤️ Missing you a little extra today!",
+        "Every second away from you makes me appreciate you even more, Dudu 💕",
+        "My day feels incomplete without talking to you. Come back soon, Dudu 💖",
+        "You are my favorite thought every single minute of the day ❤️ Miss you so much!"
+    ],
+    random: [
+        "If I had a flower for every time I thought of you, Dudu, I could walk through my garden forever 🌸❤️",
+        "You are my today and all of my tomorrows, Dudu ✨",
+        "Holding your hand is my favorite thing to do in the entire world 🤝❤️",
+        "Life is infinitely sweeter because I get to share it with you, Dudu 💕",
+        "You make my heart smile without even trying 🥰",
+        "In a room full of art, I would still stare at you, Dudu ❤️"
+    ]
+};
+
+async function getFreshHybridLoveMessage(category = "morning") {
+    // 1. Interleave Saved Custom Messages (35% probability if user has saved custom messages)
+    if (customSavedMessagesList && customSavedMessagesList.length > 0 && Math.random() < 0.35) {
+        const matchingCustom = customSavedMessagesList.filter(m => m.category === category || category === "random");
+        const pool = matchingCustom.length > 0 ? matchingCustom : customSavedMessagesList;
+        const picked = pool[Math.floor(Math.random() * pool.length)];
+        if (picked && picked.text) {
+            saveSeenQuote(picked.text);
+            return personalizeText(picked.text);
+        }
+    }
+
+    // 2. Fetch Fresh Online Quote from Public Internet APIs
+    try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 2000);
+        const apiRes = await fetch("https://api.quotable.io/quotes/random?tags=love", { signal: controller.signal });
+        clearTimeout(timeoutId);
+        if (apiRes.ok) {
+            const data = await apiRes.json();
+            const q = Array.isArray(data) ? data[0] : data;
+            if (q && q.content && !isQuoteSeen(q.content)) {
+                saveSeenQuote(q.content);
+                return `${q.content} ❤️`;
+            }
+        }
+    } catch (e) {
+        console.log("Internet quote API fetch fallback:", e);
+    }
+
+    // 3. Fallback to Fresh Online Romantic Quotes Engine (guaranteed zero repeat!)
+    const poolKey = (category in FRESH_ONLINE_LOVE_QUOTES) ? category : "random";
+    const availableQuotes = FRESH_ONLINE_LOVE_QUOTES[poolKey].filter(q => !isQuoteSeen(q));
+    
+    let selectedQuote = "";
+    if (availableQuotes.length > 0) {
+        selectedQuote = availableQuotes[Math.floor(Math.random() * availableQuotes.length)];
+    } else {
+        const allFlat = Object.values(FRESH_ONLINE_LOVE_QUOTES).flat();
+        const unseenFlat = allFlat.filter(q => !isQuoteSeen(q));
+        if (unseenFlat.length > 0) {
+            selectedQuote = unseenFlat[Math.floor(Math.random() * unseenFlat.length)];
+        } else {
+            localStorage.removeItem(STORAGE_KEYS_SEEN_QUOTES);
+            selectedQuote = FRESH_ONLINE_LOVE_QUOTES[poolKey][0];
+        }
+    }
+
+    saveSeenQuote(selectedQuote);
+    return personalizeText(selectedQuote);
+}
+
 // Global State
 let activeIndices = { morning: 0, afternoon: 0, evening: 0, night: 0 };
 let todayMessage = "";
@@ -128,7 +356,10 @@ const STORAGE_KEYS = {
     NAME: "love_app_bf_name",
     PHONE: "love_app_bf_phone",
     CUSTOM: "love_app_custom_msg",
-    SCHEDULE: "love_app_schedule"
+    SCHEDULE: "love_app_schedule",
+    SAVED_MESSAGES: "love_app_saved_messages",
+    WORKER_URL: "love_app_worker_url",
+    WORKER_KEY: "love_app_worker_key"
 };
 
 // --- 1. Phone Sanitization & Validation ---
@@ -152,16 +383,58 @@ function validatePhoneNumber(phoneStr) {
 
 function personalizeText(text) {
     if (!text) return "";
-    const savedName = localStorage.getItem(STORAGE_KEYS.NAME) || CONFIG.boyfriendName || "";
+    const savedName = localStorage.getItem(STORAGE_KEYS.NAME) || CONFIG.boyfriendName || "Dudu";
     const trimmedName = savedName.trim();
-    const replacement = trimmedName !== "" ? trimmedName : "my love";
+    const replacement = trimmedName !== "" ? trimmedName : "Dudu";
     return text.replace(/\{NAME\}/g, replacement);
+}
+
+// --- Full-Page Background Slideshow ---
+let bgSlideshowIndex = 0;
+let bgSlideshowTimer = null;
+
+function initBackgroundSlideshow() {
+    if (!CONFIG.memories || CONFIG.memories.length === 0) return;
+    
+    const slide1 = document.getElementById("bg-slide-1");
+    const slide2 = document.getElementById("bg-slide-2");
+    if (!slide1 || !slide2) return;
+
+    const bgPhotos = CONFIG.memories.map(m => m.image);
+    if (bgPhotos.length === 0) return;
+
+    slide1.style.backgroundImage = `url('${bgPhotos[0]}')`;
+    slide1.classList.add("active");
+
+    let currentActiveLayer = 1;
+
+    if (bgSlideshowTimer) clearInterval(bgSlideshowTimer);
+
+    bgSlideshowTimer = setInterval(() => {
+        bgSlideshowIndex = (bgSlideshowIndex + 1) % bgPhotos.length;
+        const nextImg = bgPhotos[bgSlideshowIndex];
+
+        if (currentActiveLayer === 1) {
+            slide2.style.backgroundImage = `url('${nextImg}')`;
+            slide2.classList.add("active");
+            slide1.classList.remove("active");
+            currentActiveLayer = 2;
+        } else {
+            slide1.style.backgroundImage = `url('${nextImg}')`;
+            slide1.classList.add("active");
+            slide2.classList.remove("active");
+            currentActiveLayer = 1;
+        }
+    }, 5500);
 }
 
 // --- 2. Initialization ---
 document.addEventListener("DOMContentLoaded", () => {
     initLandingScreen();
+    initBackgroundSlideshow();
     loadSavedDetails();
+    loadSavedCustomMessages();
+    loadWorkerApiSettings();
     initFloatingHearts();
     initMessages();
     initTodayMessage();
@@ -169,7 +442,6 @@ document.addEventListener("DOMContentLoaded", () => {
     renderMemories();
     renderReasons();
     renderTimeline();
-    initMissYouSection();
     initSurpriseSection();
     initOpenWhenSection();
     initSongSection();
@@ -180,27 +452,75 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // --- 3. Landing Screen Experience ---
 function initLandingScreen() {
-    const nextBtn = document.getElementById("landing-next-btn");
-    const enterBtn = document.getElementById("landing-enter-btn");
-    const phase1 = document.getElementById("landing-phase-1");
-    const phase2 = document.getElementById("landing-phase-2");
+    const yesBtn = document.getElementById("landing-yes-btn");
+    const noBtn = document.getElementById("landing-no-btn");
     const landingOverlay = document.getElementById("landing-screen");
     const mainDashboard = document.getElementById("main-dashboard");
 
-    if (nextBtn) {
-        nextBtn.addEventListener("click", () => {
-            phase1.classList.add("hidden");
-            phase2.classList.remove("hidden");
-        });
+    let yesScale = 1;
+    const playfulToasts = [
+        "No way! 😜",
+        "Think again... 🥺",
+        "Are you really sure? 💔",
+        "You have to say Yes now! 💕",
+        "Don't play hard to get, Dudu! 😄",
+        "Just say Yes already! ❤️",
+        "Pretty please click Yes! ✨"
+    ];
+    let msgIndex = 0;
+
+    const moveNoButton = () => {
+        if (landingOverlay && noBtn.parentNode !== landingOverlay) {
+            landingOverlay.appendChild(noBtn);
+        }
+
+        const btnWidth = noBtn.offsetWidth || 110;
+        const btnHeight = noBtn.offsetHeight || 45;
+        
+        const minX = 20;
+        const maxX = Math.max(minX, window.innerWidth - btnWidth - 20);
+        const minY = 20;
+        const maxY = Math.max(minY, window.innerHeight - btnHeight - 20);
+
+        const randomX = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
+        const randomY = Math.floor(Math.random() * (maxY - minY + 1)) + minY;
+
+        noBtn.style.position = "absolute";
+        noBtn.style.left = `${randomX}px`;
+        noBtn.style.top = `${randomY}px`;
+        noBtn.style.zIndex = "10000";
+        noBtn.style.opacity = "1";
+        noBtn.style.visibility = "visible";
+    };
+
+    const handleNoAction = (e) => {
+        if (e) {
+            if (e.type === "touchstart") e.preventDefault();
+        }
+        yesScale += 0.45;
+        yesBtn.style.transform = `scale(${yesScale})`;
+        yesBtn.style.zIndex = "100";
+
+        moveNoButton();
+
+        showToast(playfulToasts[msgIndex % playfulToasts.length]);
+        msgIndex++;
+    };
+
+    if (noBtn && yesBtn) {
+        noBtn.addEventListener("click", handleNoAction);
+        noBtn.addEventListener("touchstart", handleNoAction);
     }
 
-    if (enterBtn) {
-        enterBtn.addEventListener("click", () => {
-            landingOverlay.style.opacity = "0";
-            setTimeout(() => {
-                landingOverlay.classList.add("hidden");
-                mainDashboard.classList.remove("hidden");
-            }, 500);
+    if (yesBtn) {
+        yesBtn.addEventListener("click", () => {
+            if (landingOverlay) {
+                landingOverlay.style.opacity = "0";
+                setTimeout(() => {
+                    landingOverlay.classList.add("hidden");
+                    if (mainDashboard) mainDashboard.classList.remove("hidden");
+                }, 500);
+            }
         });
     }
 }
@@ -211,14 +531,21 @@ function loadSavedDetails() {
     const phone = localStorage.getItem(STORAGE_KEYS.PHONE) || CONFIG.boyfriendPhone || "";
     const custom = localStorage.getItem(STORAGE_KEYS.CUSTOM) || "";
 
-    if (name) document.getElementById("bf-name").value = name;
-    if (phone) document.getElementById("bf-phone").value = phone;
-    if (custom) document.getElementById("custom-message-input").value = custom;
+    const nameEl = document.getElementById("bf-name");
+    const phoneEl = document.getElementById("bf-phone");
+    const customEl = document.getElementById("custom-message-input");
+    const saveBtn = document.getElementById("save-details-btn");
 
-    document.getElementById("save-details-btn").addEventListener("click", saveBoyfriendDetails);
-    document.getElementById("custom-message-input").addEventListener("input", (e) => {
-        localStorage.setItem(STORAGE_KEYS.CUSTOM, e.target.value);
-    });
+    if (nameEl && name) nameEl.value = name;
+    if (phoneEl && phone) phoneEl.value = phone;
+    if (customEl && custom) customEl.value = custom;
+
+    if (saveBtn) saveBtn.addEventListener("click", saveBoyfriendDetails);
+    if (customEl) {
+        customEl.addEventListener("input", (e) => {
+            localStorage.setItem(STORAGE_KEYS.CUSTOM, e.target.value);
+        });
+    }
 }
 
 function saveBoyfriendDetails() {
@@ -276,32 +603,138 @@ function updateLoveCounter() {
     if (sEl) sEl.textContent = String(secs).padStart(2, "0");
 }
 
-// --- 6. Memories & Photo Lightbox ---
+// --- 6. Memories & Photo Lightbox & Album ---
+let currentAlbumFilter = "all";
+let slideshowInterval = null;
+let touchStartX = 0;
+let touchEndX = 0;
+
+function getFavoriteMemories() {
+    try {
+        const stored = localStorage.getItem("love_fav_memories");
+        return stored ? JSON.parse(stored) : [];
+    } catch (e) {
+        return [];
+    }
+}
+
+function saveFavoriteMemories(favs) {
+    try {
+        localStorage.setItem("love_fav_memories", JSON.stringify(favs));
+    } catch (e) {}
+}
+
+function updateFavCount() {
+    const favs = getFavoriteMemories();
+    const countEl = document.getElementById("fav-count");
+    if (countEl) countEl.textContent = favs.length;
+}
+
+function filterMemories(category, btnEl) {
+    currentAlbumFilter = category;
+    const pills = document.querySelectorAll(".filter-pill");
+    pills.forEach(p => p.classList.remove("active"));
+    if (btnEl) btnEl.classList.add("active");
+    renderMemories();
+}
+
+function toggleFavoriteMemory(memId, event) {
+    if (event) event.stopPropagation();
+    let favs = getFavoriteMemories();
+    const isFav = favs.includes(memId);
+
+    if (isFav) {
+        favs = favs.filter(id => id !== memId);
+        showToast("Removed from Favorites 💔");
+    } else {
+        favs.push(memId);
+        showToast("Saved to Favorites! 💖");
+        createHeartBurst(event ? event.clientX : window.innerWidth / 2, event ? event.clientY : window.innerHeight / 2);
+    }
+    saveFavoriteMemories(favs);
+    updateFavCount();
+    renderMemories();
+
+    if (currentLightboxIndex !== null && currentLightboxIndex !== undefined) {
+        const currentMem = getFilteredMemories()[currentLightboxIndex];
+        if (currentMem && currentMem.id === memId) {
+            updateLightboxFavButton(currentMem.id);
+        }
+    }
+}
+
+function createHeartBurst(x, y) {
+    for (let i = 0; i < 6; i++) {
+        const heart = document.createElement("div");
+        heart.className = "floating-burst-heart";
+        heart.innerHTML = "💖";
+        heart.style.left = `${x + (Math.random() * 40 - 20)}px`;
+        heart.style.top = `${y + (Math.random() * 40 - 20)}px`;
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 1000);
+    }
+}
+
+function getFilteredMemories() {
+    if (!CONFIG.memories) return [];
+    if (currentAlbumFilter === "all") return CONFIG.memories;
+    if (currentAlbumFilter === "favorites") {
+        const favs = getFavoriteMemories();
+        return CONFIG.memories.filter(m => favs.includes(m.id));
+    }
+    return CONFIG.memories.filter(m => m.category === currentAlbumFilter);
+}
+
 function renderMemories() {
     const grid = document.getElementById("memories-grid");
     if (!grid) return;
 
+    // Dynamically update total memory badge & filter count
+    const badgeEl = document.querySelector(".memory-count-badge");
+    if (badgeEl && CONFIG.memories) {
+        badgeEl.textContent = `📸 ${CONFIG.memories.length} Precious Memories`;
+    }
+    const allFilterPill = document.querySelector(".album-filter-container .filter-pill");
+    if (allFilterPill && CONFIG.memories && (allFilterPill.textContent.includes("All") || allFilterPill.textContent.includes("✨"))) {
+        allFilterPill.innerHTML = `✨ All (${CONFIG.memories.length})`;
+    }
+
+    updateFavCount();
     grid.innerHTML = "";
-    if (!CONFIG.memories || CONFIG.memories.length === 0) {
-        grid.innerHTML = "<p class='text-center'>No memories pinned yet 💕</p>";
+
+    const filtered = getFilteredMemories();
+
+    if (!filtered || filtered.length === 0) {
+        if (currentAlbumFilter === "favorites") {
+            grid.innerHTML = "<p class='empty-memories-msg'>No favorite memories pinned yet 💕<br><small>Tap the ❤️ on any polaroid to save your favorites!</small></p>";
+        } else {
+            grid.innerHTML = "<p class='empty-memories-msg'>No memories in this category yet 💕</p>";
+        }
         return;
     }
 
-    const defaultRotations = ["-2deg", "2.5deg", "-1.5deg", "3deg", "-2.8deg", "1.8deg"];
+    const defaultRotations = ["-2.2deg", "2.5deg", "-1.5deg", "3deg", "-2.8deg", "1.8deg"];
+    const favs = getFavoriteMemories();
 
-    CONFIG.memories.forEach((mem, index) => {
+    filtered.forEach((mem, index) => {
         const card = document.createElement("div");
         card.className = "polaroid-card";
         const rot = mem.rotation || defaultRotations[index % defaultRotations.length];
         card.style.transform = `rotate(${rot})`;
         card.onclick = () => openLightbox(index);
 
+        const isFav = favs.includes(mem.id);
         const captionText = mem.caption || mem.title || "A special memory ❤️";
+        const categoryLabel = mem.category ? (mem.category === 'romantic' ? '❤️ Romantic' : mem.category === 'cute' ? '🥰 Cute' : '🌅 Trip') : '✨ Special';
 
         card.innerHTML = `
             <div class="polaroid-tape" aria-hidden="true"></div>
+            <button type="button" class="polaroid-heart-btn ${isFav ? 'active' : ''}" onclick="toggleFavoriteMemory('${mem.id}', event)" title="${isFav ? 'Remove Favorite' : 'Save to Favorites'}">
+                ${isFav ? '💖' : '🤍'}
+            </button>
+            <span class="polaroid-badge">${categoryLabel}</span>
             <div class="polaroid-img-wrapper">
-                <img src="${mem.image}" alt="${mem.title || 'Memory photo'}" loading="lazy" onerror="if(this.dataset.tried) return; this.dataset.tried='1'; if(this.src.endsWith('.jpg')) this.src=this.src.replace('.jpg','.png'); else if(this.src.endsWith('.png')) this.src=this.src.replace('.png','.jpg');">
+                <img src="${mem.image}" alt="${mem.title || 'Memory photo'}" loading="lazy" onerror="if(this.dataset.tried==='2'){this.closest('.polaroid-card')?.remove();return;} if(this.dataset.tried==='1'){this.dataset.tried='2'; if(this.src.endsWith('.png')) this.src=this.src.replace('.png','.jpeg'); else this.closest('.polaroid-card')?.remove();} else {this.dataset.tried='1'; if(this.src.endsWith('.jpg')) this.src=this.src.replace('.jpg','.png'); else if(this.src.endsWith('.jpeg')) this.src=this.src.replace('.jpeg','.jpg');}">
             </div>
             <div class="polaroid-caption-box">
                 <p class="polaroid-caption">${personalizeText(captionText)}</p>
@@ -312,28 +745,91 @@ function renderMemories() {
     });
 }
 
+function updateLightboxFavButton(memId) {
+    const favBtn = document.getElementById("lightbox-fav-btn");
+    if (!favBtn) return;
+    const favs = getFavoriteMemories();
+    const isFav = favs.includes(memId);
+    favBtn.innerHTML = isFav ? "💖" : "🤍";
+    favBtn.classList.toggle("active", isFav);
+}
+
+function toggleFavoriteFromLightbox() {
+    const filtered = getFilteredMemories();
+    if (currentLightboxIndex === null || !filtered[currentLightboxIndex]) return;
+    const currentMem = filtered[currentLightboxIndex];
+    toggleFavoriteMemory(currentMem.id);
+}
+
 function openLightbox(index) {
-    if (!CONFIG.memories || !CONFIG.memories[index]) return;
+    const filtered = getFilteredMemories();
+    if (!filtered || !filtered[index]) return;
     currentLightboxIndex = index;
     
-    const mem = CONFIG.memories[index];
-    document.getElementById("lightbox-img").src = mem.image;
-    document.getElementById("lightbox-title").textContent = personalizeText(mem.caption || mem.title || "Memory");
-    document.getElementById("lightbox-date").textContent = mem.date || "";
+    const mem = filtered[index];
+    const imgEl = document.getElementById("lightbox-img");
+    const titleEl = document.getElementById("lightbox-title");
+    const descEl = document.getElementById("lightbox-desc");
+    const dateEl = document.getElementById("lightbox-date");
+    const counterEl = document.getElementById("lightbox-counter");
+
+    if (imgEl) imgEl.src = mem.image;
+    if (titleEl) titleEl.textContent = mem.title || "Our Memory";
+    if (descEl) descEl.textContent = personalizeText(mem.caption || "");
+    if (dateEl) dateEl.textContent = mem.date || "";
+    if (counterEl) counterEl.textContent = `Photo ${index + 1} of ${filtered.length}`;
+
+    updateLightboxFavButton(mem.id);
 
     const modal = document.getElementById("lightbox-modal");
-    modal.classList.remove("hidden");
+    if (modal) modal.classList.remove("hidden");
 }
 
 function closeLightbox() {
+    stopSlideshow();
     const modal = document.getElementById("lightbox-modal");
     if (modal) modal.classList.add("hidden");
 }
 
 function navigateLightbox(direction) {
-    if (!CONFIG.memories || CONFIG.memories.length === 0) return;
-    currentLightboxIndex = (currentLightboxIndex + direction + CONFIG.memories.length) % CONFIG.memories.length;
+    const filtered = getFilteredMemories();
+    if (!filtered || filtered.length === 0) return;
+    currentLightboxIndex = (currentLightboxIndex + direction + filtered.length) % filtered.length;
     openLightbox(currentLightboxIndex);
+}
+
+function toggleSlideshow() {
+    if (slideshowInterval) {
+        stopSlideshow();
+        showToast("Slideshow paused ⏸️");
+    } else {
+        startSlideshow();
+        showToast("Slideshow playing! ▶️");
+    }
+}
+
+function startSlideshow() {
+    stopSlideshow();
+    const btn = document.getElementById("slideshow-toggle-btn");
+    if (btn) {
+        btn.innerHTML = "⏸️ Pause";
+        btn.classList.add("playing");
+    }
+    slideshowInterval = setInterval(() => {
+        navigateLightbox(1);
+    }, 3200);
+}
+
+function stopSlideshow() {
+    if (slideshowInterval) {
+        clearInterval(slideshowInterval);
+        slideshowInterval = null;
+    }
+    const btn = document.getElementById("slideshow-toggle-btn");
+    if (btn) {
+        btn.innerHTML = "▶️ Auto Play";
+        btn.classList.remove("playing");
+    }
 }
 
 function initLightboxListeners() {
@@ -342,6 +838,16 @@ function initLightboxListeners() {
         modal.addEventListener("click", (e) => {
             if (e.target === modal) closeLightbox();
         });
+
+        // Touch Swipe Navigation for Mobile
+        modal.addEventListener("touchstart", (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        modal.addEventListener("touchend", (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipeGesture();
+        }, { passive: true });
     }
 
     document.addEventListener("keydown", (e) => {
@@ -349,8 +855,21 @@ function initLightboxListeners() {
             if (e.key === "Escape") closeLightbox();
             if (e.key === "ArrowLeft") navigateLightbox(-1);
             if (e.key === "ArrowRight") navigateLightbox(1);
+            if (e.key === " ") {
+                e.preventDefault();
+                toggleSlideshow();
+            }
         }
     });
+}
+
+function handleSwipeGesture() {
+    const swipeThreshold = 50;
+    if (touchEndX < touchStartX - swipeThreshold) {
+        navigateLightbox(1); // Swipe Left -> Next
+    } else if (touchEndX > touchStartX + swipeThreshold) {
+        navigateLightbox(-1); // Swipe Right -> Prev
+    }
 }
 
 // --- 7. Reasons I Love You ---
@@ -578,22 +1097,181 @@ function launchSMS(messageText) {
     window.location.href = url;
 }
 
-function sendCategoryWhatsApp(category) {
-    const rawMsg = MESSAGE_LIBRARY[category][activeIndices[category]];
-    launchWhatsApp(personalizeText(rawMsg));
+const DEFAULT_TG_BOT_TOKEN = "8600331379:AAHZR36Kj7VT8my1KFVMvT8FaKo9hZSvvfQ";
+const DEFAULT_TG_CHAT_ID = "5102703653";
+
+async function launchTelegram(messageText) {
+    showToast("Sending to @YourloveMansibot... ⏳");
+    const botToken = localStorage.getItem("love_app_tg_bot_token") || DEFAULT_TG_BOT_TOKEN;
+    const chatId = localStorage.getItem("love_app_tg_chat_id") || DEFAULT_TG_CHAT_ID;
+
+    try {
+        const res = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ chat_id: chatId, text: messageText })
+        });
+        const data = await res.json();
+        if (data.ok) {
+            showToast("Sent to @YourloveMansibot Telegram Bot! 🚀❤️");
+            return;
+        } else {
+            console.warn("Telegram bot error response:", data);
+        }
+    } catch (e) {
+        console.warn("Direct Telegram API fetch failed:", e);
+    }
+
+    // Direct Telegram App Launch Fallback
+    const encoded = encodeURIComponent(messageText);
+    window.open(`https://t.me/share/url?url=&text=${encoded}`, "_blank");
 }
 
-function sendCategorySMS(category) {
-    const rawMsg = MESSAGE_LIBRARY[category][activeIndices[category]];
-    launchSMS(personalizeText(rawMsg));
+async function sendCategoryWhatsApp(category) {
+    const freshMsg = await getFreshHybridLoveMessage(category);
+    launchWhatsApp(freshMsg);
 }
 
-function sendTodayWhatsApp() {
-    launchWhatsApp(personalizeText(todayMessage));
+async function sendCategorySMS(category) {
+    const freshMsg = await getFreshHybridLoveMessage(category);
+    launchSMS(freshMsg);
 }
 
-function sendTodaySMS() {
-    launchSMS(personalizeText(todayMessage));
+async function sendCategoryTelegram(category) {
+    const freshMsg = await getFreshHybridLoveMessage(category);
+    await launchTelegram(freshMsg);
+}
+
+async function sendTodayWhatsApp() {
+    const freshMsg = await getFreshHybridLoveMessage("random");
+    launchWhatsApp(freshMsg);
+}
+
+async function sendTodaySMS() {
+    const freshMsg = await getFreshHybridLoveMessage("random");
+    launchSMS(freshMsg);
+}
+
+async function sendTodayTelegram() {
+    const freshMsg = await getFreshHybridLoveMessage("random");
+    await launchTelegram(freshMsg);
+}
+
+// --- Custom Messages Management & Cloud Worker Sync ---
+let customSavedMessagesList = [];
+
+function loadSavedCustomMessages() {
+    const raw = localStorage.getItem(STORAGE_KEYS.SAVED_MESSAGES);
+    if (raw) {
+        try {
+            customSavedMessagesList = JSON.parse(raw);
+            customSavedMessagesList.forEach(item => {
+                injectMessageIntoLibrary(item.category, item.text);
+            });
+        } catch (e) {
+            console.error("Error loading custom saved messages:", e);
+            customSavedMessagesList = [];
+        }
+    }
+    renderSavedCustomMessages();
+}
+
+function injectMessageIntoLibrary(category, text) {
+    if (!text) return;
+    if (category === "miss_you") {
+        if (!CONFIG.iMissYouMessages.includes(text)) {
+            CONFIG.iMissYouMessages.push(text);
+        }
+    } else if (category === "random") {
+        ["morning", "afternoon", "evening", "night"].forEach(cat => {
+            if (!MESSAGE_LIBRARY[cat].includes(text)) MESSAGE_LIBRARY[cat].push(text);
+        });
+    } else if (MESSAGE_LIBRARY[category]) {
+        if (!MESSAGE_LIBRARY[category].includes(text)) {
+            MESSAGE_LIBRARY[category].push(text);
+        }
+    }
+}
+
+function saveNewCustomMessage() {
+    const textInput = document.getElementById("custom-message-input");
+    const categorySelect = document.getElementById("custom-msg-category");
+    
+    const text = textInput ? textInput.value.trim() : "";
+    const category = categorySelect ? categorySelect.value : "morning";
+
+    if (!text) {
+        showToast("Please type a message first 💌");
+        if (textInput) textInput.focus();
+        return;
+    }
+
+    // Save locally
+    const newItem = { id: Date.now(), category, text, date: new Date().toLocaleDateString() };
+    customSavedMessagesList.push(newItem);
+    localStorage.setItem(STORAGE_KEYS.SAVED_MESSAGES, JSON.stringify(customSavedMessagesList));
+
+    // Inject into current active runtime library
+    injectMessageIntoLibrary(category, text);
+    updateAllCategoryPreviews();
+    refreshTodayMessageDisplay();
+
+    // Clear input
+    if (textInput) {
+        textInput.value = "";
+        localStorage.removeItem(STORAGE_KEYS.CUSTOM);
+    }
+
+    renderSavedCustomMessages();
+    showToast("Message saved to your love library! 💾❤️");
+
+    // Optional Cloud Sync to Cloudflare Worker D1 Database
+    syncMessageToWorker(category, text);
+}
+
+function deleteSavedCustomMessage(id) {
+    customSavedMessagesList = customSavedMessagesList.filter(item => item.id !== id);
+    localStorage.setItem(STORAGE_KEYS.SAVED_MESSAGES, JSON.stringify(customSavedMessagesList));
+    renderSavedCustomMessages();
+    showToast("Message deleted 🧹");
+}
+
+function renderSavedCustomMessages() {
+    const container = document.getElementById("saved-messages-list");
+    if (!container) return;
+
+    if (customSavedMessagesList.length === 0) {
+        container.innerHTML = `<p class="text-muted">No custom messages saved yet. Add one above! 💕</p>`;
+        return;
+    }
+
+    const catLabels = {
+        morning: "🌅 Good Morning",
+        afternoon: "☀️ Good Afternoon",
+        evening: "🌆 Good Evening",
+        night: "🌙 Good Night",
+        miss_you: "💭 Miss You",
+        random: "💖 Random Love"
+    };
+
+    container.innerHTML = "";
+    customSavedMessagesList.slice().reverse().forEach(item => {
+        const card = document.createElement("div");
+        card.className = "saved-msg-item";
+        card.innerHTML = `
+            <div class="saved-msg-header">
+                <span class="saved-msg-badge">${catLabels[item.category] || "💌 Message"}</span>
+                <button class="btn-delete-msg" onclick="deleteSavedCustomMessage(${item.id})" title="Delete message">&times;</button>
+            </div>
+            <p class="saved-msg-text">${personalizeText(item.text)}</p>
+            <div class="saved-msg-actions">
+                <button class="btn btn-xs btn-whatsapp" onclick="launchWhatsApp(personalizeText('${item.text.replace(/'/g, "\\'")}'))">WhatsApp 💚</button>
+                <button class="btn btn-xs btn-sms" onclick="launchSMS(personalizeText('${item.text.replace(/'/g, "\\'")}'))">SMS 💌</button>
+                <button class="btn btn-xs btn-outline" onclick="launchTelegram(personalizeText('${item.text.replace(/'/g, "\\'")}'))">Telegram 🚀</button>
+            </div>
+        `;
+        container.appendChild(card);
+    });
 }
 
 function sendCustomWhatsApp() {
@@ -616,10 +1294,70 @@ function sendCustomSMS() {
     launchSMS(personalizeText(customInput));
 }
 
-function clearCustomMessage() {
-    document.getElementById("custom-message-input").value = "";
-    localStorage.removeItem(STORAGE_KEYS.CUSTOM);
-    showToast("Custom message cleared 🧹");
+async function sendCustomTelegram() {
+    const text = document.getElementById("custom-message-input").value.trim();
+    if (!text) {
+        showToast("Please type a message first 💌");
+        document.getElementById("custom-message-input").focus();
+        return;
+    }
+
+    const personalized = personalizeText(text);
+    await launchTelegram(personalized);
+}
+
+function loadWorkerApiSettings() {
+    const url = localStorage.getItem(STORAGE_KEYS.WORKER_URL) || "";
+    const key = localStorage.getItem(STORAGE_KEYS.WORKER_KEY) || "";
+    const urlInput = document.getElementById("worker-api-url");
+    const keyInput = document.getElementById("worker-admin-key");
+    if (urlInput) urlInput.value = url;
+    if (keyInput) keyInput.value = key;
+}
+
+function saveWorkerApiSettings() {
+    const urlInput = document.getElementById("worker-api-url");
+    const keyInput = document.getElementById("worker-admin-key");
+    const url = urlInput ? urlInput.value.trim() : "";
+    const key = keyInput ? keyInput.value.trim() : "";
+
+    localStorage.setItem(STORAGE_KEYS.WORKER_URL, url);
+    localStorage.setItem(STORAGE_KEYS.WORKER_KEY, key);
+
+    showToast("Cloud Worker settings saved! ⚡❤️");
+}
+
+async function syncMessageToWorker(category, text) {
+    const workerUrl = localStorage.getItem(STORAGE_KEYS.WORKER_URL);
+    const workerKey = localStorage.getItem(STORAGE_KEYS.WORKER_KEY);
+    if (!workerUrl) return;
+
+    try {
+        const cleanUrl = workerUrl.replace(/\/+$/, "");
+        const catMap = {
+            morning: "GOOD_MORNING",
+            afternoon: "GOOD_AFTERNOON",
+            evening: "GOOD_EVENING",
+            night: "GOOD_NIGHT",
+            miss_you: "I_MISS_YOU",
+            random: "RANDOM_LOVE"
+        };
+        await fetch(`${cleanUrl}/api/messages`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-Admin-Key": workerKey || ""
+            },
+            body: JSON.stringify({
+                category: catMap[category] || "GOOD_MORNING",
+                message_text: text,
+                enabled: 1
+            })
+        });
+        console.log("Message synced to Cloudflare Worker D1 DB!");
+    } catch (e) {
+        console.warn("Could not sync message to worker:", e);
+    }
 }
 
 // --- 15. Local Scheduler & Countdown ---

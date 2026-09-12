@@ -1,7 +1,7 @@
 const https = require('https');
 
 const token = process.env.TELEGRAM_BOT_TOKEN || '8600331379:AAHZR36Kj7VT8my1KFVMvT8FaKo9hZSvvfQ';
-const chatId = process.env.TELEGRAM_CHAT_ID || '5102703653'; // Alim Khan's Chat ID
+const chatId = process.env.TELEGRAM_CHAT_ID || '5102703653'; // Dudu's Chat ID
 
 const hourlyMessages = [
     "Thinking of you right now ❤️ Just wanted to remind you that you are loved more than you know. 🥰",

@@ -11,6 +11,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Full-Page Background Photo Slideshow -->
+    <div id="bg-slideshow" class="bg-slideshow-wrapper" aria-hidden="true">
+        <div id="bg-slide-1" class="bg-slide"></div>
+        <div id="bg-slide-2" class="bg-slide"></div>
+        <div class="bg-slideshow-overlay"></div>
+    </div>
+
     <!-- Background Floating Hearts Canvas / Container -->
     <div id="hearts-container" aria-hidden="true"></div>
 
@@ -25,18 +32,23 @@
             </div>
             <!-- Phase 1 Content -->
             <div id="landing-phase-1">
-                <h1 class="landing-title">Hey You... <span class="title-heart">❤️</span></h1>
-                <p class="landing-subtitle">Someone made a tiny corner of the internet just for you.</p>
-                <button type="button" id="landing-next-btn" class="btn btn-primary btn-block margin-top-md">
-                    Come inside ✨
-                </button>
+                <h1 class="landing-title">Hey Dudu... <span class="title-heart">❤️</span></h1>
+                <p class="landing-subtitle">I made a tiny corner of the internet just for you, Dudu. Would you like to see it? ✨</p>
+                <div class="landing-btn-group margin-top-md">
+                    <button type="button" id="landing-yes-btn" class="btn btn-primary landing-yes-btn">
+                        Yes, I want to see it! ✨
+                    </button>
+                    <button type="button" id="landing-no-btn" class="btn btn-secondary landing-no-btn">
+                        No 😜
+                    </button>
+                </div>
             </div>
             <!-- Phase 2 Content (Hidden initially) -->
             <div id="landing-phase-2" class="hidden">
                 <h1 class="landing-title">Welcome to Our Little Universe <span class="title-heart">❤️</span></h1>
-                <p class="landing-subtitle">A tiny place made for my favorite person.</p>
+                <p class="landing-subtitle">A tiny place made for my favorite Dudu ❤️</p>
                 <button type="button" id="landing-enter-btn" class="btn btn-primary btn-block margin-top-md">
-                    Enter Our World ✨
+                    Enter Our World Dudu ✨
                 </button>
             </div>
         </div>
@@ -48,15 +60,12 @@
         <nav class="sticky-nav" id="navbar">
             <div class="nav-scroll-container">
                 <a href="#love-counter-section" class="nav-item">💖 Love Counter</a>
-                <a href="#messages-section" class="nav-item">💌 Messages</a>
                 <a href="#memories-section" class="nav-item">📸 Memories</a>
                 <a href="#reasons-section" class="nav-item">🥰 Reasons</a>
                 <a href="#timeline-section" class="nav-item">📅 Timeline</a>
-                <a href="#miss-you-section" class="nav-item">💭 Miss You</a>
                 <a href="#surprise-section" class="nav-item">🎁 Surprise</a>
                 <a href="#open-when-section" class="nav-item">🌙 Open When</a>
                 <a href="#song-section" class="nav-item">🎵 Our Song</a>
-                <a href="#details-section" class="nav-item">⚙️ Details</a>
             </div>
         </nav>
 
@@ -95,127 +104,25 @@
                 </div>
             </section>
 
-            <!-- 💌 1. LITTLE MESSAGES & TODAY'S SPECIAL -->
-            <section class="messages-container-section" id="messages-section">
-                <!-- Today's Love Message Card -->
-                <div class="card today-card">
-                    <div class="card-badge">Daily Special ✨</div>
-                    <h2 class="card-title">Today's Little Reminder ❤️</h2>
-                    <div class="today-message-box">
-                        <p id="today-message-text" class="message-preview">Loading today's reminder...</p>
-                    </div>
-                    <div class="card-actions-row">
-                        <button class="btn btn-whatsapp" onclick="sendTodayWhatsApp()">
-                            Send on WhatsApp 💚
-                        </button>
-                        <button class="btn btn-sms" onclick="sendTodaySMS()">
-                            Send via SMS 💌
-                        </button>
-                        <button class="btn btn-outline" onclick="shuffleTodayMessage()">
-                            Surprise Me 🎲
-                        </button>
-                    </div>
-                </div>
 
-                <h2 class="section-heading margin-top-lg">Choose a Love Category 💌</h2>
-                
-                <div class="categories-grid">
-                    <!-- Good Morning Card -->
-                    <article class="card category-card morning-card">
-                        <div class="category-header">
-                            <span class="category-icon">🌅</span>
-                            <h3 class="category-title">Good Morning</h3>
-                        </div>
-                        <div class="message-box">
-                            <p id="preview-morning" class="message-preview">Loading morning love...</p>
-                        </div>
-                        <div class="card-buttons">
-                            <button class="btn btn-whatsapp" onclick="sendCategoryWhatsApp('morning')">
-                                Send on WhatsApp 💚
-                            </button>
-                            <button class="btn btn-sms" onclick="sendCategorySMS('morning')">
-                                Send via SMS 💌
-                            </button>
-                            <button class="btn btn-secondary" onclick="cycleCategoryMessage('morning')">
-                                Change Message ✨
-                            </button>
-                        </div>
-                    </article>
 
-                    <!-- Good Afternoon Card -->
-                    <article class="card category-card afternoon-card">
-                        <div class="category-header">
-                            <span class="category-icon">☀️</span>
-                            <h3 class="category-title">Good Afternoon</h3>
-                        </div>
-                        <div class="message-box">
-                            <p id="preview-afternoon" class="message-preview">Loading afternoon thoughts...</p>
-                        </div>
-                        <div class="card-buttons">
-                            <button class="btn btn-whatsapp" onclick="sendCategoryWhatsApp('afternoon')">
-                                Send on WhatsApp 💚
-                            </button>
-                            <button class="btn btn-sms" onclick="sendCategorySMS('afternoon')">
-                                Send via SMS 💌
-                            </button>
-                            <button class="btn btn-secondary" onclick="cycleCategoryMessage('afternoon')">
-                                Change Message ✨
-                            </button>
-                        </div>
-                    </article>
-
-                    <!-- Good Evening Card -->
-                    <article class="card category-card evening-card">
-                        <div class="category-header">
-                            <span class="category-icon">🌆</span>
-                            <h3 class="category-title">Good Evening</h3>
-                        </div>
-                        <div class="message-box">
-                            <p id="preview-evening" class="message-preview">Loading evening care...</p>
-                        </div>
-                        <div class="card-buttons">
-                            <button class="btn btn-whatsapp" onclick="sendCategoryWhatsApp('evening')">
-                                Send on WhatsApp 💚
-                            </button>
-                            <button class="btn btn-sms" onclick="sendCategorySMS('evening')">
-                                Send via SMS 💌
-                            </button>
-                            <button class="btn btn-secondary" onclick="cycleCategoryMessage('evening')">
-                                Change Message ✨
-                            </button>
-                        </div>
-                    </article>
-
-                    <!-- Good Night Card -->
-                    <article class="card category-card night-card">
-                        <div class="category-header">
-                            <span class="category-icon">🌙</span>
-                            <h3 class="category-title">Good Night</h3>
-                        </div>
-                        <div class="message-box">
-                            <p id="preview-night" class="message-preview">Loading sweet dreams...</p>
-                        </div>
-                        <div class="card-buttons">
-                            <button class="btn btn-whatsapp" onclick="sendCategoryWhatsApp('night')">
-                                Send on WhatsApp 💚
-                            </button>
-                            <button class="btn btn-sms" onclick="sendCategorySMS('night')">
-                                Send via SMS 💌
-                            </button>
-                            <button class="btn btn-secondary" onclick="cycleCategoryMessage('night')">
-                                Change Message ✨
-                            </button>
-                        </div>
-                    </article>
-                </div>
-            </section>
-
-            <!-- 📸 2. OUR MEMORIES — POLAROID MEMORY WALL -->
+            <!-- 📸 2. OUR MEMORIES — POLAROID MEMORY WALL & ALBUM -->
             <section class="card memories-section-card" id="memories-section">
                 <div class="card-header text-center">
-                    <h2 class="card-title justify-center">Our Polaroid Memory Wall 📸</h2>
-                    <p class="card-description">Pinnable moments of us captured forever. Tap any polaroid to enlarge 💕</p>
+                    <span class="memory-count-badge">📸 12 Precious Memories</span>
+                    <h2 class="card-title justify-center">Our Polaroid Memory Album 💖</h2>
+                    <p class="card-description">Pinnable moments of us captured forever. Tap any polaroid to view full size & start slideshow 💕</p>
                 </div>
+
+                <!-- Memory Category Filter Pills -->
+                <div class="album-filter-container">
+                    <button type="button" class="filter-pill active" onclick="filterMemories('all', this)">✨ All (12)</button>
+                    <button type="button" class="filter-pill" onclick="filterMemories('romantic', this)">❤️ Romantic</button>
+                    <button type="button" class="filter-pill" onclick="filterMemories('cute', this)">🥰 Cute Moments</button>
+                    <button type="button" class="filter-pill" onclick="filterMemories('travel', this)">🌅 Trips & Walks</button>
+                    <button type="button" class="filter-pill" onclick="filterMemories('favorites', this)">💖 Favorites (<span id="fav-count">0</span>)</button>
+                </div>
+
                 <div id="memories-grid" class="memories-grid masonry-wall">
                     <!-- Polaroid cards injected dynamically by script.js -->
                 </div>
@@ -224,7 +131,7 @@
             <!-- 🥰 3. WHY I LOVE YOU -->
             <section class="card reasons-section-card" id="reasons-section">
                 <div class="card-header">
-                    <h2 class="card-title">Little Things I Love About You ❤️</h2>
+                    <h2 class="card-title">Little Things I Love About You 🤍</h2>
                     <p class="card-description">Just a few of the infinite reasons you make my world special.</p>
                 </div>
                 <div id="reasons-grid" class="reasons-grid">
@@ -246,27 +153,7 @@
                 </div>
             </section>
 
-            <!-- 💭 5. I MISS YOU -->
-            <section class="card miss-you-card" id="miss-you-section">
-                <div class="card-header">
-                    <h2 class="card-title">Missing You? 🥺</h2>
-                    <p class="card-description">Send him a sweet reminder whenever you're thinking of him.</p>
-                </div>
-                <div class="message-box">
-                    <p id="miss-you-text" class="message-preview">Click below to generate a sweet message...</p>
-                </div>
-                <div class="card-actions-row">
-                    <button class="btn btn-primary" onclick="generateMissYouMessage()">
-                        Tell Him ❤️
-                    </button>
-                    <button class="btn btn-whatsapp" onclick="sendMissYouWhatsApp()">
-                        Send on WhatsApp 💚
-                    </button>
-                    <button class="btn btn-sms" onclick="sendCategorySMS('morning')">
-                        Send via SMS 💌
-                    </button>
-                </div>
-            </section>
+
 
             <!-- 🎁 6. A LITTLE SURPRISE -->
             <section class="card surprise-card" id="surprise-section">
@@ -324,23 +211,68 @@
                 </div>
             </section>
 
-            <!-- Custom Message Card -->
+            <!-- Custom Message & Add New Messages Card -->
             <section class="card custom-card">
-                <h2 class="card-title">Write something from your heart 💌</h2>
+                <div class="card-header">
+                    <h2 class="card-title">Write & Add New Love Messages 💌</h2>
+                    <p class="card-description">Type a message to send directly or save it permanently to your love library without editing code!</p>
+                </div>
                 <div class="form-group">
-                    <textarea id="custom-message-input" rows="4" placeholder="Type your own custom love message here... Use {NAME} to insert his name dynamically! ❤️"></textarea>
+                    <label for="custom-msg-category">Select Message Category</label>
+                    <select id="custom-msg-category" class="form-select">
+                        <option value="morning">🌅 Good Morning</option>
+                        <option value="afternoon">☀️ Good Afternoon</option>
+                        <option value="evening">🌆 Good Evening</option>
+                        <option value="night">🌙 Good Night</option>
+                        <option value="miss_you">💭 Miss You</option>
+                        <option value="random">💖 Random Love</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="custom-message-input">Message Content</label>
+                    <textarea id="custom-message-input" rows="4" placeholder="Type your love message here... Use {NAME} to insert his name dynamically! ❤️"></textarea>
                 </div>
                 <div class="card-actions-row">
+                    <button class="btn btn-primary" onclick="saveNewCustomMessage()">
+                        Save to Library 💾
+                    </button>
                     <button class="btn btn-whatsapp" onclick="sendCustomWhatsApp()">
-                        Send on WhatsApp 💚
+                        WhatsApp 💚
                     </button>
                     <button class="btn btn-sms" onclick="sendCustomSMS()">
-                        Send via SMS 💌
+                        SMS 💌
                     </button>
-                    <button class="btn btn-outline" onclick="clearCustomMessage()">
-                        Clear 🧹
+                    <button class="btn btn-outline" onclick="sendCustomTelegram()">
+                        Telegram 🚀
                     </button>
                 </div>
+
+                <!-- List of Saved Custom Messages -->
+                <div class="saved-messages-section margin-top-lg">
+                    <h3 class="subsection-title">Your Custom Saved Messages 📚</h3>
+                    <div id="saved-messages-list" class="saved-messages-list">
+                        <p class="text-muted">No custom messages saved yet. Add one above! 💕</p>
+                    </div>
+                </div>
+
+                <!-- Cloudflare Worker Cloud Sync (Optional) -->
+                <details class="worker-sync-details margin-top-md">
+                    <summary class="worker-sync-summary">⚡ Cloud Sync & Telegram Worker Settings (Optional)</summary>
+                    <div class="worker-sync-content margin-top-sm">
+                        <p class="input-hint">If you deployed Cloudflare Worker, enter your Worker URL here to sync messages & send auto Telegram messages!</p>
+                        <div class="form-group margin-top-xs">
+                            <label for="worker-api-url">Worker API URL</label>
+                            <input type="url" id="worker-api-url" placeholder="https://our-love-universe-worker.xxx.workers.dev">
+                        </div>
+                        <div class="form-group">
+                            <label for="worker-admin-key">Admin Setup Key (Optional)</label>
+                            <input type="password" id="worker-admin-key" placeholder="Your secret admin key">
+                        </div>
+                        <button class="btn btn-secondary btn-block" onclick="saveWorkerApiSettings()">
+                            Save Worker Connection 🔗
+                        </button>
+                    </div>
+                </details>
             </section>
 
             <!-- Message Scheduler UI (Local Device Timer) -->
@@ -390,28 +322,7 @@
                 </div>
             </section>
 
-            <!-- Boyfriend Details Card -->
-            <section class="card details-card" id="details-section">
-                <div class="card-header">
-                    <h2 class="card-title">Who is this little love for? 💕</h2>
-                    <p class="card-description">Save details to personalize all romantic messages instantly!</p>
-                </div>
-                <form id="details-form" onsubmit="return false;">
-                    <div class="form-group">
-                        <label for="bf-name">His Name</label>
-                        <input type="text" id="bf-name" placeholder="e.g. Rahul, My Love, Jaan" autocomplete="given-name">
-                    </div>
-                    <div class="form-group">
-                        <label for="bf-phone">His Phone Number</label>
-                        <input type="tel" id="bf-phone" placeholder="e.g. +91 98765 43210 or 9876543210" autocomplete="tel">
-                        <small class="input-hint">Supports Indian (+91) & International formats. Saved strictly on your device.</small>
-                        <span id="phone-validation-error" class="error-msg hidden">Please enter a valid phone number.</span>
-                    </div>
-                    <button type="button" id="save-details-btn" class="btn btn-primary btn-block">
-                        Save Details ❤️
-                    </button>
-                </form>
-            </section>
+
         </main>
 
         <!-- Cute Footer -->
@@ -421,16 +332,26 @@
         </footer>
     </div>
 
-    <!-- 🖼️ PHOTO LIGHTBOX MODAL -->
+    <!-- 🖼️ PHOTO LIGHTBOX MODAL & SLIDESHOW -->
     <div id="lightbox-modal" class="lightbox-overlay hidden" role="dialog" aria-modal="true">
         <button type="button" class="lightbox-close" onclick="closeLightbox()" aria-label="Close Lightbox">&times;</button>
         <button type="button" class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)" aria-label="Previous Photo">&#8249;</button>
         <button type="button" class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)" aria-label="Next Photo">&#8250;</button>
         
         <div class="lightbox-content">
+            <div class="lightbox-top-bar">
+                <span id="lightbox-counter" class="lightbox-counter">Photo 1 of 10</span>
+                <button type="button" id="slideshow-toggle-btn" class="slideshow-btn" onclick="toggleSlideshow()">▶️ Auto Play</button>
+            </div>
+
             <img id="lightbox-img" src="" alt="Memory Photo">
+
             <div class="lightbox-caption">
-                <h3 id="lightbox-title">Photo Title</h3>
+                <div class="lightbox-title-row">
+                    <h3 id="lightbox-title">Photo Title</h3>
+                    <button type="button" id="lightbox-fav-btn" class="lightbox-fav-btn" onclick="toggleFavoriteFromLightbox()" title="Mark as Favorite">🤍</button>
+                </div>
+                <p id="lightbox-desc" class="lightbox-desc"></p>
                 <span id="lightbox-date">Date</span>
             </div>
         </div>
