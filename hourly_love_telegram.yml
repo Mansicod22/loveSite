@@ -1,0 +1,26 @@
+name: Hourly Telegram Love Message 24/7
+
+on:
+  schedule:
+    # Runs every hour at minute 15 (24/7) - avoids GitHub Actions top-of-hour congestion delays
+    - cron: '15 * * * *'
+  workflow_dispatch: # Allows manual trigger anytime from GitHub interface
+
+jobs:
+  send-telegram-message:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run Telegram Hourly Love Script
+        run: node scripts/send_hourly_love.js
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
