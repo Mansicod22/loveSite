@@ -60,7 +60,7 @@ const CONFIG = {
             id: "mem-7",
             image: "images/photo7.jpg",
             title: "Holding Your Hand 🤝❤️",
-            caption: "Walking hand in hand through every season of life 🌸",
+            caption: "Walking every step in hand through every season of life 🌸",
             date: "Walks & Talks",
             category: "travel",
             rotation: "1.5deg"

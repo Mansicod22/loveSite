@@ -91,7 +91,64 @@ async function sendTelegramMessage(env, chatId, text) {
     return result;
 }
 
-// --- 4. Scheduled Handler (Cron Trigger Execution) ---
+// --- 3.5 Multi-Tier Internet Quote Engine ---
+const CURATED_INTERNET_LOVE_QUOTES = [
+    "You are my today and all of my tomorrows. ❤️",
+    "In all the world, there is no heart for me like yours. In all the world, there is no love for you like mine. 💕",
+    "I love you not only for what you are, but for what I am when I am with you. ✨",
+    "If I had a flower for every time I thought of you, I could walk through my garden forever. 🌸",
+    "To the world you may be one person, but to me you are the world. 💖",
+    "Every love story is beautiful, but ours is my absolute favorite. 🥰",
+    "You are the sweetest part of my day and the warmest thought in my heart. ☀️❤️",
+    "I look at you and see the rest of my life in front of my eyes. 💕",
+    "My heart is and always will be yours, {NAME}. 💖",
+    "No matter where I go, I always find my way back to you. ✨",
+    "You make my heart smile every single day. 🥰❤️",
+    "Thinking of you keeps me awake. Dreaming of you keeps me asleep. Being with you keeps me alive. 💕",
+    "You are my favorite notification and my favorite thought. 📲❤️",
+    "Distance means so little when someone means so much to you, {NAME}. 🌸💕",
+    "I fell in love with the way you touched my soul without even using your hands. ❤️"
+];
+
+async function getFreshLoveQuote(boyfriendName) {
+    // 1. Try DummyJSON Quotes API
+    try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 3500);
+        const res = await fetch("https://dummyjson.com/quotes/random", { signal: controller.signal });
+        clearTimeout(timeoutId);
+        if (res.ok) {
+            const data = await res.json();
+            if (data && data.quote) {
+                return `"${data.quote}" ✨`;
+            }
+        }
+    } catch (e) {
+        console.log("[Quote Engine] DummyJSON API fetch failed, trying fallback source:", e.message);
+    }
+
+    // 2. Try AdviceSlip API
+    try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 3500);
+        const res = await fetch("https://api.adviceslip.com/advice", { signal: controller.signal });
+        clearTimeout(timeoutId);
+        if (res.ok) {
+            const data = await res.json();
+            if (data && data.slip && data.slip.advice) {
+                return `"${data.slip.advice}" 💕`;
+            }
+        }
+    } catch (e) {
+        console.log("[Quote Engine] AdviceSlip API fetch failed, falling back to curated pool:", e.message);
+    }
+
+    // 3. Fallback to Curated Love Quotes Pool (100% Reliable!)
+    const randomIndex = Math.floor(Math.random() * CURATED_INTERNET_LOVE_QUOTES.length);
+    return CURATED_INTERNET_LOVE_QUOTES[randomIndex].replace(/\{NAME\}|\{Dudu\}/gi, boyfriendName);
+}
+
+// --- 4. Scheduled Handler (Cron Trigger Execution 24/7) ---
 async function handleScheduledCron(env) {
     const { dateStr, timeStr, hour, minute, dayOfWeek } = getIndiaTimeComponents();
     console.log(`[Cron Execution] India Date: ${dateStr}, Time: ${timeStr}, Day: ${dayOfWeek}`);
@@ -120,7 +177,38 @@ async function handleScheduledCron(env) {
     const nameSetting = await env.DB.prepare("SELECT value FROM settings WHERE key = 'boyfriend_name'").first();
     const boyfriendName = nameSetting ? nameSetting.value : "Dudu";
 
-    // Get enabled schedules
+    // --- A. AUTOMATIC HOURLY REMINDER (Runs near minute 15 of every hour) ---
+    if (minute >= 12 && minute <= 18) {
+        const currentHourKey = `${dateStr}-${String(hour).padStart(2, '0')}`;
+        const lastHourlySetting = await env.DB.prepare("SELECT value FROM settings WHERE key = 'last_hourly_sent_key'").first();
+
+        if (!lastHourlySetting || lastHourlySetting.value !== currentHourKey) {
+            console.log(`[Cron] Executing Hourly Love Reminder for ${currentHourKey}...`);
+            const hourlyQuoteText = await getFreshLoveQuote(boyfriendName);
+            const fullHourlyText = `⏰ Hourly Love Reminder ❤️\n\n${hourlyQuoteText}`;
+
+            try {
+                await sendTelegramMessage(env, connection.chat_id, fullHourlyText);
+                console.log(`[Cron] Successfully sent Hourly Love Message to Telegram!`);
+
+                await env.DB.prepare(
+                    "INSERT INTO settings (key, value, updated_at) VALUES ('last_hourly_sent_key', ?, CURRENT_TIMESTAMP) ON CONFLICT(key) DO UPDATE SET value = excluded.value, updated_at = CURRENT_TIMESTAMP"
+                ).bind(currentHourKey).run();
+
+                await env.DB.prepare(
+                    "INSERT INTO message_history (category, message_text, status) VALUES (?, ?, ?)"
+                ).bind("HOURLY_LOVE", fullHourlyText, "SENT").run();
+
+            } catch (err) {
+                console.error(`[Cron] Error sending Hourly Telegram message:`, err);
+                await env.DB.prepare(
+                    "INSERT INTO message_history (category, message_text, status, error_message) VALUES (?, ?, ?, ?)"
+                ).bind("HOURLY_LOVE", fullHourlyText, "FAILED", err.message || "Failed to send").run();
+            }
+        }
+    }
+
+    // --- B. DAILY SCHEDULED REMINDERS (Good Morning, Afternoon, Evening, Night) ---
     const { results: schedules } = await env.DB.prepare("SELECT * FROM schedules WHERE enabled = 1").all();
     if (!schedules || schedules.length === 0) return;
 
@@ -160,30 +248,19 @@ async function handleScheduledCron(env) {
 
         if (customDbMessages && customDbMessages.length > 0 && Math.random() < 0.35) {
             const picked = customDbMessages[Math.floor(Math.random() * customDbMessages.length)];
-            formattedBody = picked.message_text.replace(/\{NAME\}/g, boyfriendName);
+            formattedBody = picked.message_text.replace(/\{NAME\}|\{Dudu\}/gi, boyfriendName);
             selectedMsgId = picked.id;
         }
 
-        // Otherwise fetch fresh quote from Internet API
+        // Otherwise fetch fresh internet quote
         if (!formattedBody) {
-            try {
-                const apiRes = await fetch("https://api.quotable.io/quotes/random?tags=love");
-                if (apiRes.ok) {
-                    const data = await apiRes.json();
-                    const q = Array.isArray(data) ? data[0] : data;
-                    if (q && q.content) {
-                        formattedBody = `${q.content} ❤️`;
-                    }
-                }
-            } catch (e) {
-                console.log("[Cron] Internet quote API fetch failed, falling back to DB pool:", e);
-            }
+            formattedBody = await getFreshLoveQuote(boyfriendName);
         }
 
-        // Fallback to D1 Database message pool if API is unavailable
+        // Fallback to D1 Database message pool if quote failed
         if (!formattedBody && customDbMessages && customDbMessages.length > 0) {
             const picked = customDbMessages[Math.floor(Math.random() * customDbMessages.length)];
-            formattedBody = picked.message_text.replace(/\{NAME\}/g, boyfriendName);
+            formattedBody = picked.message_text.replace(/\{NAME\}|\{Dudu\}/gi, boyfriendName);
             selectedMsgId = picked.id;
         }
 
@@ -208,7 +285,7 @@ async function handleScheduledCron(env) {
             // Update schedule idempotency state
             await env.DB.prepare(
                 "UPDATE schedules SET last_sent_date = ?, last_sent_message_id = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?"
-            ).bind(dateStr, selectedMsg.id, schedule.id).run();
+            ).bind(dateStr, selectedMsgId, schedule.id).run();
 
             // Insert into history
             await env.DB.prepare(
