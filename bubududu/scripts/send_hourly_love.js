@@ -17,36 +17,29 @@ const hourlyMessages = [
     "Close your eyes for 5 seconds and feel my love surrounding you right now! 💕✨",
     "You make my heart smile every single hour of the day ❤️🥰",
     "\"You are my today and all of my tomorrows.\" ❤️",
-    "\"In all the world, there is no heart for me like yours.\" 💕",
-    "\"To the world you may be one person, but to me you are the world.\" 💖"
+    "\"In all the world, there is no heart for me like yours. In all the world, there is no love for you like mine.\" 💕",
+    "\"I love you not only for what you are, but for what I am when I am with you.\" ✨",
+    "\"If I had a flower for every time I thought of you, I could walk through my garden forever.\" 🌸",
+    "\"To the world you may be one person, but to me you are the world.\" 💖",
+    "\"Every love story is beautiful, but ours is my absolute favorite.\" 🥰",
+    "\"You are the sweetest part of my day and the warmest thought in my heart.\" ☀️❤️",
+    "\"I look at you and see the rest of my life in front of my eyes.\" 💕",
+    "\"My heart is and always will be yours.\" 💖",
+    "\"No matter where I go, I always find my way back to you.\" ✨",
+    "\"Thinking of you keeps me awake. Dreaming of you keeps me asleep. Being with you keeps me alive.\" 💕",
+    "\"You are my favorite notification and my favorite thought.\" 📲❤️",
+    "\"Distance means so little when someone means so much to you.\" 🌸💕",
+    "\"I fell in love with the way you touched my soul without even using your hands.\" ❤️",
+    "\"You are my sun, my moon, and all of my stars.\" 🌟💕",
+    "\"My favorite place in the world is right next to you.\" 🏡❤️",
+    "\"You make even the most ordinary days feel extraordinary.\" ✨🥰",
+    "\"Every second spent with you is a memory I treasure forever.\" ⏳💖",
+    "\"I didn't choose you, my heart did.\" ❤️🌸"
 ];
 
 async function main() {
-    let selectedMsg = "";
-    
-    // Try fetching internet quote
-    try {
-        const quoteData = await new Promise((resolve, reject) => {
-            const qReq = https.get('https://dummyjson.com/quotes/random', { timeout: 3000 }, res => {
-                let body = '';
-                res.on('data', chunk => body += chunk);
-                res.on('end', () => resolve(body));
-            });
-            qReq.on('error', reject);
-            qReq.on('timeout', () => { qReq.destroy(); reject(new Error('Timeout')); });
-        });
-        const parsed = JSON.parse(quoteData);
-        if (parsed && parsed.quote) {
-            selectedMsg = `"${parsed.quote}" ✨`;
-        }
-    } catch (e) {
-        console.log('Internet quote API unreachable, using curated message pool:', e.message);
-    }
-
-    if (!selectedMsg) {
-        const randomIndex = Math.floor(Math.random() * hourlyMessages.length);
-        selectedMsg = hourlyMessages[randomIndex];
-    }
+    const randomIndex = Math.floor(Math.random() * hourlyMessages.length);
+    const selectedMsg = hourlyMessages[randomIndex];
 
     const fullMessageText = `⏰ Hourly Love Reminder ❤️\n\n${selectedMsg}`;
 

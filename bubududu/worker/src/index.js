@@ -91,61 +91,42 @@ async function sendTelegramMessage(env, chatId, text) {
     return result;
 }
 
-// --- 3.5 Multi-Tier Internet Quote Engine ---
-const CURATED_INTERNET_LOVE_QUOTES = [
-    "You are my today and all of my tomorrows. ❤️",
-    "In all the world, there is no heart for me like yours. In all the world, there is no love for you like mine. 💕",
-    "I love you not only for what you are, but for what I am when I am with you. ✨",
-    "If I had a flower for every time I thought of you, I could walk through my garden forever. 🌸",
-    "To the world you may be one person, but to me you are the world. 💖",
-    "Every love story is beautiful, but ours is my absolute favorite. 🥰",
-    "You are the sweetest part of my day and the warmest thought in my heart. ☀️❤️",
-    "I look at you and see the rest of my life in front of my eyes. 💕",
-    "My heart is and always will be yours, {NAME}. 💖",
-    "No matter where I go, I always find my way back to you. ✨",
-    "You make my heart smile every single day. 🥰❤️",
-    "Thinking of you keeps me awake. Dreaming of you keeps me asleep. Being with you keeps me alive. 💕",
-    "You are my favorite notification and my favorite thought. 📲❤️",
-    "Distance means so little when someone means so much to you, {NAME}. 🌸💕",
-    "I fell in love with the way you touched my soul without even using your hands. ❤️"
+// --- 3.5 Pure Romantic Love Quotes Engine ---
+const PURE_ROMANTIC_LOVE_MESSAGES = [
+    "Thinking of you right now ❤️ Just wanted to remind you that you are loved more than you know. 🥰",
+    "Hope your day is going amazingly well 💕 Don't stress too much, someone is cheering for you! ☀️",
+    "Just a little hourly dose of love for my favorite person in the world ❤️✨",
+    "Sending you a warm virtual hug and lots of kisses right now! 🌸🥰",
+    "You're the sweetest part of my day ❤️ Can't wait to talk to you soon 💕",
+    "Take a short pause, stay hydrated, and remember that you mean the world to me 💖",
+    "No matter how busy the day gets, you're always the first thing on my mind 🌆❤️",
+    "Close your eyes for 5 seconds and feel my love surrounding you right now! 💕✨",
+    "You make my heart smile every single hour of the day ❤️🥰",
+    "\"You are my today and all of my tomorrows.\" ❤️",
+    "\"In all the world, there is no heart for me like yours. In all the world, there is no love for you like mine.\" 💕",
+    "\"I love you not only for what you are, but for what I am when I am with you.\" ✨",
+    "\"If I had a flower for every time I thought of you, I could walk through my garden forever.\" 🌸",
+    "\"To the world you may be one person, but to me you are the world.\" 💖",
+    "\"Every love story is beautiful, but ours is my absolute favorite.\" 🥰",
+    "\"You are the sweetest part of my day and the warmest thought in my heart.\" ☀️❤️",
+    "\"I look at you and see the rest of my life in front of my eyes.\" 💕",
+    "\"My heart is and always will be yours, {NAME}.\" 💖",
+    "\"No matter where I go, I always find my way back to you.\" ✨",
+    "\"Thinking of you keeps me awake. Dreaming of you keeps me asleep. Being with you keeps me alive.\" 💕",
+    "\"You are my favorite notification and my favorite thought.\" 📲❤️",
+    "\"Distance means so little when someone means so much to you, {NAME}.\" 🌸💕",
+    "\"I fell in love with the way you touched my soul without even using your hands.\" ❤️",
+    "\"You are my sun, my moon, and all of my stars.\" 🌟💕",
+    "\"My favorite place in the world is right next to you, {NAME}.\" 🏡❤️",
+    "\"You make even the most ordinary days feel extraordinary.\" ✨🥰",
+    "\"Every second spent with you is a memory I treasure forever.\" ⏳💖",
+    "\"I didn't choose you, my heart did.\" ❤️🌸"
 ];
 
 async function getFreshLoveQuote(boyfriendName) {
-    // 1. Try DummyJSON Quotes API
-    try {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 3500);
-        const res = await fetch("https://dummyjson.com/quotes/random", { signal: controller.signal });
-        clearTimeout(timeoutId);
-        if (res.ok) {
-            const data = await res.json();
-            if (data && data.quote) {
-                return `"${data.quote}" ✨`;
-            }
-        }
-    } catch (e) {
-        console.log("[Quote Engine] DummyJSON API fetch failed, trying fallback source:", e.message);
-    }
-
-    // 2. Try AdviceSlip API
-    try {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 3500);
-        const res = await fetch("https://api.adviceslip.com/advice", { signal: controller.signal });
-        clearTimeout(timeoutId);
-        if (res.ok) {
-            const data = await res.json();
-            if (data && data.slip && data.slip.advice) {
-                return `"${data.slip.advice}" 💕`;
-            }
-        }
-    } catch (e) {
-        console.log("[Quote Engine] AdviceSlip API fetch failed, falling back to curated pool:", e.message);
-    }
-
-    // 3. Fallback to Curated Love Quotes Pool (100% Reliable!)
-    const randomIndex = Math.floor(Math.random() * CURATED_INTERNET_LOVE_QUOTES.length);
-    return CURATED_INTERNET_LOVE_QUOTES[randomIndex].replace(/\{NAME\}|\{Dudu\}/gi, boyfriendName);
+    const randomIndex = Math.floor(Math.random() * PURE_ROMANTIC_LOVE_MESSAGES.length);
+    const selected = PURE_ROMANTIC_LOVE_MESSAGES[randomIndex];
+    return selected.replace(/\{NAME\}|\{Dudu\}/gi, boyfriendName);
 }
 
 // --- 4. Scheduled Handler (Cron Trigger Execution 24/7) ---
